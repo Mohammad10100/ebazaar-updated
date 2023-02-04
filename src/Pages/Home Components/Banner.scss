@@ -1,6 +1,6 @@
 .banner-container{
     background-color: #7e6de8;
-    height: 70vh;
+    height: 85vh;
     display: flex;
     padding: 20px 4%;
     .div-1{
@@ -34,7 +34,8 @@
             }
         }
         .p{
-            color: #413e57;;
+            color: #413e57;
+            margin: 0;
         }
         .browse-farm-btn{
             background-color: transparent;
@@ -68,7 +69,7 @@
         }
         .create-store{
             flex: 1;
-            height: 10vh;
+            height: 15vh;
             background-color: white;
             border-radius: 10px;
             border:solid 2px #3e3579;
@@ -78,7 +79,7 @@
             position: relative;
             p{
                 font-size: 15px;
-                padding: 5px 20px;
+                padding: 5px 20px; 
                 .text{
                     font-weight: 600;
                 }

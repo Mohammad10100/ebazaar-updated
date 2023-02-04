@@ -15,8 +15,10 @@ const Farms = ({ user }) => {
   const [products, setProducts] = useState([])
   const [categoryProduct, setCategoryProduct] = useState([])
   const [searchParams, setSearchParams] = useState('')
+  const [cartList, setCartList] = useState([])
 
   let list = [];
+  let newlist = [];
   useEffect(() => {
     const unsub = onSnapshot(
       collection(db, 'products'),
@@ -35,6 +37,15 @@ const Farms = ({ user }) => {
       unsub();
     }
   }, [])
+
+  const handleClick=async(prodID)=>{
+    await setDoc(doc(db,'users',user?.uid, 'cart', prodID),{
+      item:prodID,
+      quantity:1,
+      farm:user.uid,
+    })
+    toast.success(`Item Added to the Cart`)
+  }
 
   const handle1 = () => {
     setCategory('vegetables')
@@ -59,7 +70,7 @@ const Farms = ({ user }) => {
   }
   
   const onChange = (e) => {
-    const val = e.target.value
+    const val = e.target.value.toLowerCase()
     setSearchParams(val)
     if(val!=''){
       setCategory('')
@@ -90,7 +101,7 @@ const Farms = ({ user }) => {
         <div className="product-container">
           {categoryProduct.map((product) => {
             return (
-              <Product key={product.id} product={product} farm={farm} />
+              <Product key={product.id} product={product} farm={farm} handleClick={handleClick}/>
             )
           }
           )}

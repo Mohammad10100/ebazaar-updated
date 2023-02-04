@@ -14,8 +14,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { auth } from './firebase';
 import Profile from './Pages/Profile';
 import Farm from './Pages/Farm';
-import Cart from './Pages/Cart';
-import CatState from './State/CatState'
+import Cart from './Pages/Cart Components/Cart';
 function App() {
   const [active,setACtive] = useState('home')
   const [user,setUser] = useState(null)
@@ -31,7 +30,6 @@ function App() {
   },[])
   return (
     <div className="App">
-      <CatState>
       <OfferHeader user={user}/>
       <Navbar active={active} setActive={setACtive} user={user}/>
       <ToastContainer position='bottom-right'/>
@@ -46,7 +44,6 @@ function App() {
         <Route path='/farm/:id' element={<Farm user={user}/>}/>
         <Route path='/cart' element={<Cart user={user}/>}/>
       </Routes>
-      </CatState>
     </div>
   );
 }

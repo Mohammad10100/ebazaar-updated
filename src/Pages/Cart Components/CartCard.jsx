@@ -1,12 +1,12 @@
 import React from 'react'
-import './Product.scss'
+import './CartCard.scss'
 
 import { useParams } from 'react-router'
 
-export default function Product(props) {
+export default function CartCard(props) {
   const { id } = useParams()
   const { product, handleClick} = props;
-  const { farm } = props;
+//   const { farm } = props;
 
 
   return (
@@ -24,9 +24,9 @@ export default function Product(props) {
               <p className='like-status'>liked by 6</p>
               <div className='cart-view'>
                 <button>View Item</button>
-                <p onClick={()=>{handleClick(product.id)}} id={product.id} name={product.farm}>add to cart</p>
+                <p onClick={()=>{handleClick(product.id)}} id={product.id}>Remove from cart</p>
               </div>
-              <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '10px' }}>produced by {farm?.farmName}</p>
+              {/* <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '10px' }}>produced by {farm?.farmName}</p> */}
             </div>
           </div>
         </div>

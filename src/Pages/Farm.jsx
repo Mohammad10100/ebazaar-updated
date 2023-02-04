@@ -47,19 +47,19 @@ const Farm = ({user}) => {
 
   const handle1=()=>{
     setCategory('vegetables')
-    setCategoryProduct(products.filter(product=>product.category==='Vegetables'))
+    setCategoryProduct(products.filter(product=>product.category=='Vegetables'))
   }
   const handle2=()=>{
     setCategory('fruits')
-    setCategoryProduct(products.filter(product=>product.category==='Fruits'))
+    setCategoryProduct(products.filter(product=>product.category=='Fruits'))
   }
   const handle3=()=>{
     setCategory('poultry')
-    setCategoryProduct(products.filter(product=>product.category==='Poultry Items'))
+    setCategoryProduct(products.filter(product=>product.category=='Poultry Items'))
   }
   const handle4=()=>{
     setCategory('dairy')
-    setCategoryProduct(products.filter(product=>product.category==='Dairy Items'))
+    setCategoryProduct(products.filter(product=>product.category=='Dairy Items'))
   }
 
   const getFarmDetail=async()=>{
@@ -89,6 +89,29 @@ const Farm = ({user}) => {
               <img src={farmer} alt="" />
             </div>
         </div>
+        <div className='farm-banner-main'>
+          <div className="div-1">
+            <h1>Welcome to {farm?.farmName}</h1>
+            <p className='description'>{farm?.description}</p>
+            <form action="submit" onSubmit={(e)=>{e.preventDefault()}}>
+              <input type="text" placeholder={`Quick feedback`} />
+              <button type='submit' style={{display:'none'}}></button>
+              </form>
+            <p className='like-text' style={{marginTop:'20px'}}>Would you like to recommend this farm? <ThumbUpIcon style={{marginLeft:'10px',cursor:'pointer'}} className='like'/></p>
+          </div>
+          <div className="div-2">
+            <div className='farm-card'>
+              <div className='div-card-1'>
+                <img src={farm.bannerURL} alt="" />
+              </div>
+              <div className='div-card-2'>
+                <button className='membership-btn'><p style={{fontSize:'15px'}}>Join Membership</p></button>
+                <p style={{fontSize:'15px',marginTop:'10px',textAlign:'center'}}>Owner: {farm.firstName} {farm.lastName}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
         <div className='farm-content-main'>
           <div className='div-1'>
             <div className='farm-nav'>
@@ -105,6 +128,7 @@ const Farm = ({user}) => {
           <div className='div-2'>
             <div className="product-container">
             {categoryProduct.map((product)=>{
+              console.log(product)
               return(
                 <div className='product-card'>
               <div className='card'>

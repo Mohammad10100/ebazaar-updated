@@ -32,7 +32,9 @@ const Navbar = ({user,active,setActive}) => {
                 <button className={`${active === 'auth' ? 'active-btn':''}`}>Sign Up</button>
                 </Link>):(
                 <div className='navbar-profile-div'>
+                    <Link to={`/cart`}>
                     <ShoppingCartOutlinedIcon style={{color:'rgb(60, 60, 60)',fontSize:'30px',marginRight:'10px',cursor:'pointer'}} className='shopping-cart'/>
+                    </Link>
                     <Link to={`/profile`} onClick={()=>{setActive('profile')}} style={{textDecoration:'none'}}>
                     <button className={active==='profile' && 'profile-active-btn'}>
                     <p>{user.displayName}</p>
